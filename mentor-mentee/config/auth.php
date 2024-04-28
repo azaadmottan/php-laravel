@@ -40,6 +40,18 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+        'mentor' => [
+            'driver' => 'session',
+            'provider' => 'mentors',
+        ],
+        'mentee' => [
+            'driver' => 'session',
+            'provider' => 'mentees',
+        ],
     ],
 
     /*
@@ -63,6 +75,18 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
+        ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Admin::class),
+        ],
+        'mentors' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Mentor::class),
+        ],
+        'mentees' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Mentee::class),
         ],
 
         // 'users' => [
