@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('course', 255);
             $table->string('branch', 255);
             $table->string('semester', 255);
-            $table->string('mentor', 255);
+            $table->unsignedBigInteger('mentor')->nullable();
+            $table->foreign('mentor')->references('id')->on('mentors');
             $table->string('phone', 255);
             $table->string('email', 255)->unique();
             $table->string('fatherName', 255);

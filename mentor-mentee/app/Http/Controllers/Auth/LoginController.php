@@ -35,7 +35,7 @@ class LoginController extends Controller
                 return redirect()->intended(route('adminDashboard'));
             }
             if ($userType == "mentor") {
-                return redirect()->intended(route('mentorDashboard'));
+                return redirect()->intended(route('mentorDashboard.home'));
             }
             else if ($userType == "mentee") {
                 return redirect()->intended(route('menteeDashboard'));

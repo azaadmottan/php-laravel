@@ -21,7 +21,7 @@ class RedirectAuthUser
         }
 
         if (Auth::guard('mentor')->check()) {
-            return redirect(route('mentorDashboard'));
+            return redirect(route('mentorDashboard.home'));
         }
 
         if (Auth::guard('mentee')->check()) {

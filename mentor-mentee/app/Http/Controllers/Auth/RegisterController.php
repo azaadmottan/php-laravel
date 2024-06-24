@@ -7,12 +7,16 @@ use Illuminate\Http\Request;
 use App\Models\Mentor;
 use App\Models\Mentee;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
     function index() {
-        return view('pages.signup');
+        
+        $mentors = DB::table('mentors')->pluck('id', 'mentorName');
+        
+        return view('pages.signup', ['mentors' => $mentors]);
     }
 
     function MentorRegisterController(Request $req) {
@@ -70,7 +74,7 @@ class RegisterController extends Controller
         $mentee->course = $req->input('course');
         $mentee->branch = $req->input('branch');
         $mentee->semester = $req->input('semester');
-        $mentee->mentor = $req->input('mentor');
+        $mentee->mentor = (int)$req->input('mentor');
         $mentee->phone = $req->input('menteePhone');
         $mentee->email = $req->input('email');
         $mentee->fatherName = $req->input('fatherName');

@@ -143,7 +143,14 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="mentor">Mentor</label>
-                    <input type="text" class="form-control" name="mentor" required>
+                    <select class="form-select" name="mentor" id="selectSignUpForm" aria-label="Default select example">
+                        <option value="">Select Your Mentor</option>
+                        @if(count($mentors) > 0)
+                            @foreach($mentors as $mentorName => $id)
+                                <option value="{{ $id }}">{{ $mentorName }}</option>
+                            @endforeach
+                        @endif
+                    </select>
                 </div>
             </div>
             <div class="row mb-2">
